@@ -6,7 +6,7 @@ from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 
 # توكن البوت
-TOKEN = "YOUR_BOT_TOKEN"
+TOKEN = "7753856798:AAGefhZp4P8NK8FftW5fXsCR2mlYGKM48mg"
 
 # قاعدة البيانات
 conn = sqlite3.connect("players.db", check_same_thread=False)
