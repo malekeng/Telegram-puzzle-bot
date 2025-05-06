@@ -100,18 +100,5 @@ app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_answer))
 app.add_handler(CommandHandler("تصنيف", leaderboard))
 
-async def leaderboard(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    cur.execute("SELECT username, score FROM players ORDER BY score DESC LIMIT 5")
-    top_players = cur.fetchall()
-
-    if top_players:
-        message = "أفضل اللاعبين:\n\n"
-        for i, player in enumerate(top_players, start=1):
-            message += f"{i}. @{player[0] or 'بدون اسم'} — {player[1]} نقطة\n"
-    else:
-        message = "لسه ما في لاعبين بالتصنيف."
-
-    await update.message.reply_text(message)
-    
 # تشغيل البوت
 app.run_polling()
